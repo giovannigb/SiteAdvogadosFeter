@@ -38,7 +38,7 @@ h3,
 h4,
 h5,
 h6 {
-  text-transform: capitalize;
+  /* text-transform: capitalize;s */
   margin-bottom: 0.75rem;
 }
 
@@ -1182,7 +1182,7 @@ fieldset[disabled] .s-btn {
 }
 
 .s-header__logo-link {
-  display: inline-block;
+  /* display: inline-block; */
   padding: 1rem 0;
 }
 
@@ -1277,7 +1277,7 @@ fieldset[disabled] .s-btn {
 }
 
 .s-header__trigger--dark .s-header__trigger-icon {
-  background: #222324;
+  background: white;
 }
 
 .s-header__trigger svg {
@@ -1613,7 +1613,8 @@ fieldset[disabled] .s-btn {
 }
 
 .s-header__shrink .s-header__navbar {
-  background: #fff;
+  /* background: #fff; */
+  background-image: linear-gradient(to top, rgba(235, 217, 217, 0.0), rgb(0, 0, 0, 0.7), rgb(0, 0, 0, 1));
 }
 
 .s-header__shrink .s-header__logo-img-default {
@@ -1626,11 +1627,11 @@ fieldset[disabled] .s-btn {
 
 /* Trigger Icon */
 .s-header__shrink.-is-open .s-header__trigger-icon {
-  background: #fff;
+  background: #ffff;
 }
 
 .s-header__shrink .s-header__trigger-icon {
-  background: #222324;
+  background: #ffff;
 }
 
 /*----------------------------------
@@ -1995,7 +1996,7 @@ fieldset[disabled] .s-btn {
 ------------------------------ */
 @media (min-width: 62em) {
   .s-header__shrink .s-header-v2__navbar {
-    background: #fff;
+    background: #222324;
     box-shadow: 0 0 0.9375rem 0.25rem rgba(34, 35, 36, 0.05);
   }
   /* Toggle */
@@ -2372,4 +2373,8 @@ fieldset[disabled] .s-btn {
 
 .s-swiper__pagination-v1--dark .swiper-pagination-bullet-active {
   background: #13b1cd;
+}
+
+html {
+  scroll-behavior: smooth;
 }
