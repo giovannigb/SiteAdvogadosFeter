@@ -130,3 +130,6 @@ var Global = function() {
 $(document).ready(function() {
   Global.init();
 });
+
+document.body.tabIndex = '0';
+document.body.focus();
