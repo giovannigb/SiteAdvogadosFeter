@@ -714,8 +714,7 @@
                         placeholder="* Sua Mensagem"></textarea>
                 </div>
                 <div class="g-text-center--xs">
-                    <button type="submit"
-                        onclick="EnviarEmail()" 
+                    <button type="submit" onclick="EnviarEmail();gtag_report_conversion('urlteste')"
                         class="text-uppercase s-btn s-btn--md s-btn--white-bg g-radius--50 g-padding-x-70--xs g-margin-b-20--xs">Enviar</button>
                 </div>
                 <!-- gtag('event', 'conversion', { 'send_to': 'AW-405070178/lcDDCPCnyJ4DEOLCk8EB' }) -->
@@ -904,6 +903,11 @@
 
         var url = `https://api-envioemail-site-natmarco.herokuapp.com/sendmail?name=${$("#name").val()}&email=${$("#email").val()}&msg=${message}&tel=${$("#tel").val()}`;
 
+
+        $.get("demo_test.asp", function (data, status) {
+            alert("Data: " + data + "\nStatus: " + status);
+        });
+
         $.ajax({
             url: url,
             cache: false,
@@ -918,13 +922,30 @@
                 $("#results").append(html);
             },
             error: function (jqXHR, textStatus, errorThrown) {
-                 $("#results").append(textStatus);
+                $("#results").append(textStatus);
 
                 console.log(textStatus, errorThrown);
             }
         });
     }
 
+</script>
+
+<!-- Event snippet for Lead formulário site conversion page
+In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+<script>
+    function gtag_report_conversion(url) {
+        var callback = function () {
+            if (typeof (url) != 'undefined') {
+                window.location = url;
+            }
+        };
+        gtag('event', 'conversion', {
+            'send_to': 'AW-405070178/6bXmCMrb1qMDEOLCk8EB',
+            'event_callback': callback
+        });
+        return false;
+    }
 </script>
 
 </html>
