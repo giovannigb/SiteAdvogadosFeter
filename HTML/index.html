@@ -714,7 +714,8 @@
                         placeholder="* Sua Mensagem"></textarea>
                 </div>
                 <div class="g-text-center--xs">
-                    <button type="submit" onclick="EnviarEmail();gtag('event', 'conversion', { 'send_to': 'AW-405070178/lcDDCPCnyJ4DEOLCk8EB' })"
+                    <button type="submit"
+                        onclick="EnviarEmail();gtag('event', 'conversion', { 'send_to': 'AW-405070178/lcDDCPCnyJ4DEOLCk8EB' })"
                         class="text-uppercase s-btn s-btn--md s-btn--white-bg g-radius--50 g-padding-x-70--xs g-margin-b-20--xs">Enviar</button>
                 </div>
             </form>
@@ -905,14 +906,19 @@
             url: url,
             cache: false,
             crossDomain: true,
-            headers: {  'Access-Control-Allow-Origin': 'https://advogadosfeter.com.br/' },
+            headers: {
+                'Access-Control-Allow-Origin': '*',
+                'Content-Type': 'application/json'
+            },
+            method: 'GET',
+            dataType: 'jsonp',
             success: function (html) {
                 $("#results").append(html);
             },
-            error: function(jqXHR, textStatus, errorThrown) {
+            error: function (jqXHR, textStatus, errorThrown) {
                 // $("#results").append(erro);tes
 
-           console.log(textStatus, errorThrown);
+                console.log(textStatus, errorThrown);
             }
         });
     }
