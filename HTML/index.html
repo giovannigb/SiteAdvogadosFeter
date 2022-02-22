@@ -907,9 +907,10 @@
             success: function (html) {
                 $("#results").append(html);
             },
-            error: function (erro) {
-                $("#results").append(erro);
-            }
+            error: function(jqXHR, textStatus, errorThrown) {
+                // $("#results").append(erro);tes
+
+           console.log(textStatus, errorThrown);
         });
     }
 
