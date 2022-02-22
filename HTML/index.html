@@ -904,6 +904,7 @@
         $.ajax({
             url: url,
             cache: false,
+            crossDomain: true,
             headers: {  'Access-Control-Allow-Origin': 'https://advogadosfeter.com.br/' },
             success: function (html) {
                 $("#results").append(html);
