@@ -904,38 +904,24 @@
         var url = `https://api-envioemail-site-natmarco.herokuapp.com/sendmail?name=${$("#name").val()}&email=${$("#email").val()}&msg=${message}&tel=${$("#tel").val()}`;
 
         $.ajax({
-            type: 'GET',
-            crossDomain: true,
-            dataType: 'jsonp',
             url: url,
-            success: function (jsondata) {
-                $("#results").append(jsondata);
+            cache: false,
+            crossDomain: true,
+            headers: {
+                'Access-Control-Allow-Origin': '*'
+                // 'Content-Type': 'application/json'
             },
-            error: function (jsondata) {
-                $("#results").append(jsondata);
+            method: 'GET',
+            // dataType: 'jsonp',
+            success: function (html) {
+                $("#results").append(html);
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                 $("#results").append(textStatus);
+
+                console.log(textStatus, errorThrown);
             }
-        })
-
-
-        // $.ajax({
-        //     url: url,
-        //     cache: false,
-        //     crossDomain: true,
-        //     headers: {
-        //         'Access-Control-Allow-Origin': '*'
-        //         // 'Content-Type': 'application/json'
-        //     },
-        //     method: 'GET',
-        //     // dataType: 'jsonp',
-        //     success: function (html) {
-        //         $("#results").append(html);
-        //     },
-        //     error: function (jqXHR, textStatus, errorThrown) {
-        //         // $("#results").append(erro);tes
-
-        //         console.log(textStatus, errorThrown);
-        //     }
-        // });
+        });
     }
 
 </script>
