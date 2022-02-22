@@ -899,28 +899,40 @@
     function EnviarEmail() {
         var message = $.trim($('#message').val());
         message = message.replace(/\r?\n/g, "<br />");
+        console.log(message);
 
         var url = `https://api-envioemail-site-natmarco.herokuapp.com/sendmail?name=${$("#name").val()}&email=${$("#email").val()}&msg=${message}&tel=${$("#tel").val()}`;
-        console.log(message);
-        $.ajax({
-            url: url,
-            cache: false,
-            crossDomain: true,
-            headers: {
-                'Access-Control-Allow-Origin': '*'
-                // 'Content-Type': 'application/json'
-            },
-            method: 'GET',
-            // dataType: 'jsonp',
-            success: function (html) {
-                $("#results").append(html);
-            },
-            error: function (jqXHR, textStatus, errorThrown) {
-                // $("#results").append(erro);tes
 
-                console.log(textStatus, errorThrown);
+        $.ajax({
+            type: 'GET',
+            crossDomain: true,
+            dataType: 'jsonp',
+            url: url,
+            success: function (jsondata) {
+                $("#results").append(html);
             }
-        });
+        })
+
+
+        // $.ajax({
+        //     url: url,
+        //     cache: false,
+        //     crossDomain: true,
+        //     headers: {
+        //         'Access-Control-Allow-Origin': '*'
+        //         // 'Content-Type': 'application/json'
+        //     },
+        //     method: 'GET',
+        //     // dataType: 'jsonp',
+        //     success: function (html) {
+        //         $("#results").append(html);
+        //     },
+        //     error: function (jqXHR, textStatus, errorThrown) {
+        //         // $("#results").append(erro);tes
+
+        //         console.log(textStatus, errorThrown);
+        //     }
+        // });
     }
 
 </script>
