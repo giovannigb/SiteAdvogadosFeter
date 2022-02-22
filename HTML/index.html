@@ -909,7 +909,10 @@
             dataType: 'jsonp',
             url: url,
             success: function (jsondata) {
-                $("#results").append(html);
+                $("#results").append(jsondata);
+            },
+            error: function (jsondata) {
+                $("#results").append(jsondata);
             }
         })
 
