@@ -706,7 +706,7 @@
                         <input id="email" type="email" class="form-control s-form-v3__input" placeholder="* Email">
                     </div>
                     <div class="col-sm-6">
-                        <input id="phone" type="text" class="form-control s-form-v3__input" placeholder="* Telefone">
+                        <input id="tel" type="text" class="form-control s-form-v3__input" placeholder="* Telefone">
                     </div>
                 </div>
                 <div class="g-margin-b-80--xs">
@@ -900,7 +900,7 @@
         var message = $.trim($('#message').val());
         message = message.replace(/\r?\n/g, "<br />");
 
-        var url = `https://api-envioemail-site-natmarco.herokuapp.com/sendmail?name=${$("#name").val()}&email=${$("#email").val()}&msg=${message}&phone=${$("#phone").val()}`;
+        var url = `https://api-envioemail-site-natmarco.herokuapp.com/sendmail?name=${$("#name").val()}&email=${$("#email").val()}&msg=${message}&tel=${$("#tel").val()}`;
         console.log(message);
         $.ajax({
             url: url,
