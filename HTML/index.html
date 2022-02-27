@@ -902,6 +902,17 @@
 
 <script>
     function EnviarEmail() {
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'center',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+        });
         var message = $.trim($('#message').val());
         message = message.replace(/\r?\n/g, "<br />");
         console.log(message);
@@ -914,14 +925,14 @@
             type: 'GET',
             dataType: 'json', // added data type
             success: function (res) {
-                Swal.fire({
+                Toast.fire({
                     title: "Obrigado pelo contato!",
                     text: "Retornaremos o mais breve possível",
                     icon: "success"
                 });
             },
-            error: function(res){
-                Swal.fire({
+            error: function (res) {
+                Toast.fire({
                     title: "Erro ao solicitar contato.",
                     text: "Por favor entre em contato por um dos outros meios de comunicação",
                     icon: "error"
@@ -935,18 +946,18 @@
 <!-- Event snippet for Lead formulário site conversion page
 In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
 <script>
-        function gtag_report_conversion(url) {
-            var callback = function () {
-                if (typeof (url) != 'undefined') {
-                    window.location = url;
-                }
-            };
-            gtag('event', 'conversion', {
-                'send_to': 'AW-405070178/6bXmCMrb1qMDEOLCk8EB',
-                'event_callback': callback
-            });
-            return false;
-        }
+    function gtag_report_conversion(url) {
+        var callback = function () {
+            if (typeof (url) != 'undefined') {
+                window.location = url;
+            }
+        };
+        gtag('event', 'conversion', {
+            'send_to': 'AW-405070178/6bXmCMrb1qMDEOLCk8EB',
+            'event_callback': callback
+        });
+        return false;
+    }
 </script>
 
 </html>
