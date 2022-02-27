@@ -714,7 +714,7 @@
                         placeholder="* Sua Mensagem"></textarea>
                 </div>
                 <div class="g-text-center--xs">
-                    <button type="submit" onclick="EnviarEmail()"
+                    <button type="button" onclick="EnviarEmail(); return false"
                         class="text-uppercase s-btn s-btn--md s-btn--white-bg g-radius--50 g-padding-x-70--xs g-margin-b-20--xs">Enviar</button>
                 </div>
                 <!-- gtag('event', 'conversion', { 'send_to': 'AW-405070178/lcDDCPCnyJ4DEOLCk8EB' }) -->
@@ -917,7 +917,7 @@
                 Swal.fire({
                     title: "Obrigado pelo contato!",
                     text: "Retornaremos o mais breve possível",
-                    icon: "sucess"
+                    icon: "success"
                 });
             },
             error: function(res){
