@@ -914,15 +914,14 @@
             type: 'GET',
             dataType: 'json', // added data type
             success: function (res) {
-                console.log(res);
-                Swal({
+                Swal.fire({
                     title: "Obrigado pelo contato!",
                     text: "Retornaremos o mais breve possível",
                     icon: "sucess"
                 });
             },
-            error: function(){
-                Swal({
+            error: function(res){
+                Swal.fire({
                     title: "Erro ao solicitar contato.",
                     text: "Por favor entre em contato por um dos outros meios de comunicação",
                     icon: "error"
