@@ -819,6 +819,13 @@
     <!--========== END JAVASCRIPTS ==========-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+    <!--========== BEGIN SWAL ==========-->
+
+    <script src="sweetalert2.all.min.js"></script>
+    <script src="sweetalert2.min.js"></script>
+    <link rel="stylesheet" href="sweetalert2.min.css">
+    <!--========== END SWAL ==========-->
+
     <!-- Load Facebook SDK for JavaScript -->
     <!-- <div id="fb-root"></div>
     <script>
@@ -910,30 +917,20 @@
             dataType: 'json', // added data type
             success: function (res) {
                 console.log(res);
-                alert(res);
+                Swal({
+                    title: "Obrigado pelo contato!",
+                    text: "Retornaremos o mais breve possível",
+                    icon: "sucess"
+                });
+            },
+            error: function(){
+                Swal({
+                    title: "Erro ao solicitar contato.",
+                    text: "Por favor entre em contato por um dos outros meios de comunicação",
+                    icon: "error"
+                });
             }
         });
-
-    //     $.ajax({
-    //         url: url,
-    //         cache: false,
-    //         crossDomain: true,
-    //         // headers: {
-    //         //     'Access-Control-Allow-Origin': '*'
-    //         //     // 'Content-Type': 'application/json'
-    //         // },
-    //         method: 'GET',
-    //         // dataType: 'jsonp',
-    //         success: function (html) {
-    //             $("#results").append(html);
-    //         },
-    //         error: function (jqXHR, textStatus, errorThrown) {
-    //             $("#results").append(textStatus);
-
-    //             console.log(textStatus, errorThrown);
-    //         }
-    //     });
-     }
 
 </script>
 
