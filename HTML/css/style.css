@@ -2378,3 +2378,17 @@ fieldset[disabled] .s-btn {
 html {
   scroll-behavior: smooth;
 }
+
+/* Desktop */
+@media (min-width: 992px) {
+    .imagem-coluna {
+        padding-top: 12%;
+    }
+}
+
+/* Mobile */
+@media (max-width: 991px) {
+    .imagem-coluna {
+        margin-top: -12%;
+    }
+}

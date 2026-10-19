@@ -15,6 +15,22 @@
 	 url('fonts/satanic/sattanic-webfont.ttf') format('truetype'); /* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */
   }  
 
+@font-face {
+	font-family: 'daddy-christmas';
+	src: url('fonts/daddy-christmas/daddy-christmas.woff2') format('woff2'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  }
+
+@font-face {
+	font-family: 'runethia';
+	src: url('fonts/runethia/runethia.woff2') format('woff2'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  }
+  /* @font-face {
+    font-family: 'daddy-christmas';
+    src: url('/assets/fonts/daddy-christmas.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+} */
+
 [class^="ti-"], [class*=" ti-"] {
 	font-family: 'themify';
 	speak: none;
@@ -1087,7 +1103,7 @@
 }
 
 .nameNatMarco{
-	font-family: 'satanic', Arial, sans-serif;
+	font-family: 'runethia', Arial, sans-serif;
 	font-weight:normal;
 	font-style:normal;
 	font-size: 300%;
@@ -1095,7 +1111,7 @@
 }
 
 .nameNatMarcoMobile{
-	font-family: 'satanic', Arial, sans-serif;
+	font-family: 'runethia', Arial, sans-serif;
 	font-weight:normal;
 	font-style:normal;
 	font-size: 300%;

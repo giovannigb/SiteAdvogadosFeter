@@ -193,7 +193,15 @@
 
     <!--========== PROMO BLOCK ==========-->
     <div class="g-fullheight--xs js__parallax-window"
-        style="background: url(img/maos.jpg) 50% 0 no-repeat fixed; background-size: cover">
+     style="
+        background-image: 
+            linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)),
+            url('img/nat-marco-maos-2026.jpg');
+        background-position: 50% 0;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+     ">
         <div class="g-container--md g-ver-center--xs g-text-center--xs">
             <div class="g-margin-b-70--xs">
                 <h1 class="tituloPrincipal">
@@ -218,7 +226,7 @@
     <!-- About -->
     <div id="about" class="container g-padding-y-80--xs g-padding-y-125--sm g-margin-b-25--xs">
         <div class="row g-hor-centered-row--md" style="margin-top: -4%">
-            <div class="col-md-8 g-hor-centered-row__col g-margin-b-60--xs g-margin-b-0--md">
+            <div class="col-md-6 g-hor-centered-row__col g-margin-b-60--xs g-margin-b-0--md">
                 <div class="g-width-100-percent--xs g-width-400--md g-margin-b-40--xs">
                     <h2 class="g-font-size-32--xs g-font-size-36--md g-font-family--playfair g-margin-b-20--xs">
                         <br>Sobre nós
@@ -244,10 +252,10 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 col-xs-6 col-xs-offset-3 g-full-width--xs g-full-width-offset-0--xs g-hor-centered-row__col"
-                style="padding-top: 12%;">
+            <div class="col-md-6 col-xs-8 col-xs-offset-2 g-full-width--xs g-full-width-offset-0--xs g-hor-centered-row__col imagem-coluna"
+    >
                 <div class="wow fadeInUp" data-wow-duration=".3" data-wow-delay=".1s">
-                    <img class="img-responsive" src="img/natemarco.jpeg" alt="Image">
+                    <img class="img-responsive" src="img/nat-marco-2026.jpg" alt="Image">
                 </div>
             </div>
         </div>
@@ -518,7 +526,7 @@
         <div id="time" class="anchor"></div>
         <div class="row heading">
             <div class="col-md-6 col-md-offset-3">
-                <h2 class="text-center bottom-line">Conheça nosssos advogados</h2>
+                <h2 class="text-center bottom-line">Conheça nossos advogados</h2>
                 <!-- <p class="subheading text-center">Creative Nerds</p> -->
             </div>
         </div>
@@ -532,7 +540,7 @@
             <div class="col-md-3 col-sm-3 team-wrap">
                 <div class="team-member text-center">
                     <div class="team-img">
-                        <img src="img/nat.jpeg" alt="">
+                        <img src="img/nat2026.jpg" alt="">
                         <div class="overlay" style="overflow-y: scroll; padding-right: 3%; box-sizing: content-box;">
                             <div class="team-details text-center">
                                 <div class="socials mt-20 adjustMarginTop">
@@ -564,7 +572,7 @@
             <div class="col-md-3 col-sm-3 team-wrap">
                 <div class="team-member  text-center">
                     <div class="team-img">
-                        <img src="img/marco.jpeg" alt="">
+                        <img src="img/marco2026.jpg" alt="">
                         <div class="overlay" style="overflow-y: scroll; padding-right: 3%; box-sizing: content-box;">
                             <div class="team-details text-center">
                                 <div class="socials mt-20 adjustMarginTop">
@@ -985,5 +993,50 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
     };
     var x = document.getElementsByTagName('script')[0];
     x.parentNode.insertBefore(s, x);
+
+    (function forceKeyboardScroll() {
+
+    const scrollAmount = 100; // ajuste se quiser mais rápido
+
+    document.addEventListener("keydown", function (e) {
+
+        const tag = document.activeElement?.tagName?.toLowerCase();
+
+        // Não interfere se estiver digitando
+        if (tag === "input" || tag === "textarea" || tag === "select" || document.activeElement?.isContentEditable) {
+            return;
+        }
+
+        switch (e.key) {
+            case "ArrowDown":
+                e.preventDefault();
+                window.scrollBy({ top: scrollAmount, behavior: "auto" });
+                break;
+
+            case "ArrowUp":
+                e.preventDefault();
+                window.scrollBy({ top: -scrollAmount, behavior: "auto" });
+                break;
+
+            case "PageDown":
+                e.preventDefault();
+                window.scrollBy({ top: window.innerHeight, behavior: "auto" });
+                break;
+
+            case "PageUp":
+                e.preventDefault();
+                window.scrollBy({ top: -window.innerHeight, behavior: "auto" });
+                break;
+
+            case " ":
+                e.preventDefault();
+                window.scrollBy({ top: window.innerHeight, behavior: "auto" });
+                break;
+        }
+
+    }, { passive: false });
+
+})();
+
     </script>
 </html>
