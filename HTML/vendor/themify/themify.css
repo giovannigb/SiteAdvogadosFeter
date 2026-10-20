@@ -1106,45 +1106,42 @@
 	font-family: 'runethia', Arial, sans-serif;
 	font-weight:normal;
 	font-style:normal;
-	font-size: 300%;
-	/* margin-top: -5%; */
+	display: inline-block;
+	font-size: clamp(1rem, 5vw, 3.5rem);
+	line-height: 1;
+	white-space: nowrap;
 }
 
-.nameNatMarcoMobile{
-	font-family: 'runethia', Arial, sans-serif;
-	font-weight:normal;
-	font-style:normal;
-	font-size: 300%;
-	/* margin-top: -5%; */
-}
-.m-top15{
-	margin-top: -15%;
+.s-header__navbar-row {
+	display: flex;
+	align-items: center;
 }
 
-@media screen and (min-width: 601px) {
-	.nameNatMarco {
-		font-size: 350% !important;
-		margin-top: -1%;
-	}
-	.nameNatMarcoMobile {
-		display: none;
-	}
-  }
-  
-  /* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
-  @media screen and (max-width: 600px) {
-	.nameNatMarco {
-		display: none;
-	}
-	.nameNatMarcoMobile {
-		display: block;
-		font-size: 250% !important;
-		display: block !important;
-	}
+.s-header__navbar-row-col-md-8 {
+	width: auto !important;
+	min-width: 0;
+	flex: 1 1 auto;
+}
+
+.s-header__navbar-row-col {
+	width: auto;
+	display: block;
+	flex: 0 0 3.125rem;
+}
+
+.s-header__logo {
+	width: 100%;
+}
+
+.s-header__logo-link {
+	display: block;
+}
+
+@media screen and (max-width: 600px) {
 	.tituloPrincipal{
 		margin-top: 20%;
 	}
-  }
+}
 
 
   .tituloPrincipal{
