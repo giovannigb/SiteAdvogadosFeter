@@ -1,0 +1,597 @@
+/* Ajustes específicos do site. Mantidos fora dos arquivos de fornecedores. */
+
+.nameNatMarco {
+    display: inline-block;
+    font-family: 'runethia', Arial, sans-serif;
+    font-size: clamp(1rem, 5vw, 3.5rem);
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1;
+    white-space: nowrap;
+}
+
+.s-header__navbar-row {
+    display: flex;
+    align-items: center;
+}
+
+.s-header__navbar-row-col-md-8 {
+    flex: 1 1 auto;
+    width: auto !important;
+    min-width: 0;
+}
+
+.s-header__navbar-row-col {
+    display: block;
+    flex: 0 0 3.125rem;
+    width: auto;
+}
+
+.s-header__logo {
+    width: 100%;
+}
+
+.s-header__logo-link {
+    display: block;
+}
+
+.tituloPrincipal {
+    color: #b99769;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 250%;
+}
+
+.gold {
+    color: #b99769 !important;
+}
+
+#fixed-social {
+    position: fixed;
+    top: 80%;
+}
+
+#fixed-social a {
+    position: relative;
+    z-index: 2;
+    display: block;
+    width: 40px;
+    height: 40px;
+    margin-bottom: 1px;
+    color: #fff;
+    line-height: 40px;
+    text-align: center;
+}
+
+#fixed-social a span {
+    position: absolute;
+    left: 60px;
+    z-index: 1;
+    width: 120px;
+    opacity: 0;
+    visibility: hidden;
+    line-height: 40px;
+    text-align: center;
+    transition: .5s;
+}
+
+#fixed-social a:hover > span,
+#fixed-social a:focus > span {
+    left: 41px;
+    opacity: 1;
+    visibility: visible;
+}
+
+.fixed-facebook,
+.fixed-facebook span {
+    background-color: #00aae5;
+}
+
+.fixed-instagrem,
+.fixed-instagrem span {
+    background-color: #ed2b29;
+}
+
+.team-member,
+.team-img {
+    position: relative;
+    overflow: hidden;
+}
+
+.team-img img {
+    overflow: hidden;
+    transition: .2s ease-in-out;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    background-color: rgba(20, 20, 20, .7);
+    transition: .2s ease-in-out;
+}
+
+.team-details {
+    position: absolute;
+    top: 60%;
+    left: 0;
+    z-index: 2;
+    width: 100%;
+    padding: 5%;
+    overflow: hidden;
+    opacity: 0;
+    transition: .2s ease-in-out;
+}
+
+.team-details p {
+    color: #fff;
+}
+
+.team-img:hover .team-details,
+.team-img:focus-within .team-details {
+    margin-top: -80px;
+    opacity: 1;
+}
+
+.team-img:hover .overlay,
+.team-img:focus-within .overlay {
+    opacity: 1;
+}
+
+.socials i {
+    width: 37px;
+    height: 37px;
+    border-radius: 50%;
+    color: #616161;
+    font-size: 14px;
+    line-height: 37px;
+    text-align: center;
+    transition: .2s linear;
+}
+
+.team-details .socials i {
+    color: #fff;
+}
+
+.socials a:hover i,
+.socials a:focus i {
+    background-color: #355c7d;
+    color: #fff;
+}
+
+.anchor {
+    margin-top: -100px;
+    margin-bottom: 100px;
+}
+
+.adjustMarginTop {
+    margin-top: 0;
+}
+
+:root {
+    --feter-gold: #b9975b;
+    --feter-dark: #171717;
+    --feter-focus: #f5c66a;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+.header-logo-column {
+    width: 105%;
+}
+
+.s-header__logo-link,
+.nameNatMarco {
+    white-space: nowrap;
+}
+
+.s-header__trigger,
+.carousel-control {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+}
+
+.s-header__trigger {
+    appearance: none;
+}
+
+a:focus-visible,
+button:focus-visible {
+    outline: 3px solid var(--feter-focus);
+    outline-offset: 4px;
+}
+
+.hero-section {
+    background-image: linear-gradient(rgba(0, 0, 0, .8), rgba(0, 0, 0, .8)),
+        url('../img/nat-marco-maos-2026-1920.jpg');
+    background-position: 50% 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.about-row {
+    margin-top: -4%;
+}
+
+.section-divider {
+    height: 1px;
+    border: 0;
+    background-image: linear-gradient(to right, transparent, rgba(0, 0, 0, .75), transparent);
+}
+
+.practice-row {
+    margin-top: -1%;
+}
+
+.practice-card-secondary {
+    margin-top: -8%;
+}
+
+.practice-title {
+    text-transform: none;
+}
+
+.assurance-section {
+    background: url('../img/1920x1080/12.jpg') 50% 0 / cover no-repeat fixed;
+}
+
+.carousel-control {
+    line-height: 3.4rem;
+}
+
+.team-section {
+    width: 80%;
+}
+
+.team-bio {
+    font-size: small;
+    font-weight: 700;
+}
+
+.team-img {
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+}
+
+.team-img > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+}
+
+.team-overlay {
+    overflow-y: auto;
+    padding-right: 3%;
+    box-sizing: content-box;
+}
+
+.team-title {
+    margin-top: 1.25rem;
+    margin-bottom: .35rem;
+    font-size: 1.25rem;
+}
+
+.socials a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    min-height: 44px;
+}
+
+.team-img:focus-within .overlay {
+    opacity: 1;
+    visibility: visible;
+}
+
+.contact-link {
+    color: rgba(255, 255, 255, .8);
+    text-decoration: underline;
+    text-underline-offset: .2em;
+}
+
+.contact-link:hover,
+.contact-link:focus {
+    color: #fff;
+}
+
+.privacy-settings {
+    min-height: 44px;
+    margin-top: .75rem;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: rgba(255, 255, 255, .7);
+    font-size: 15px;
+    text-align: left;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.privacy-policy-link {
+    display: block;
+    min-height: 44px;
+    padding-top: 10px;
+    color: rgba(255, 255, 255, .7);
+    font-size: 15px;
+    text-decoration: underline;
+}
+
+.privacy-policy-link:hover,
+.privacy-policy-link:focus {
+    color: #fff;
+}
+
+.whatsapp-fab {
+    position: fixed;
+    z-index: 999;
+    right: 20px;
+    bottom: 20px;
+    display: inline-flex;
+    align-items: center;
+    min-height: 52px;
+    padding: 0 20px;
+    border-radius: 999px;
+    background: #16a34a;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .22);
+    color: #fff;
+    font-weight: 700;
+    gap: 10px;
+}
+
+.whatsapp-fab:hover,
+.whatsapp-fab:focus {
+    background: #12823c;
+    color: #fff;
+    text-decoration: none;
+}
+
+.whatsapp-fab .fa {
+    font-size: 24px;
+}
+
+.privacy-banner[hidden] {
+    display: none;
+}
+
+.privacy-banner {
+    position: fixed;
+    z-index: 1100;
+    right: 16px;
+    bottom: 16px;
+    left: 16px;
+}
+
+.privacy-banner__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 18px 20px;
+    border: 1px solid rgba(185, 151, 91, .55);
+    border-radius: 12px;
+    background: var(--feter-dark);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, .35);
+    color: #fff;
+    gap: 24px;
+}
+
+.privacy-banner__content p {
+    margin: 0;
+    color: rgba(255, 255, 255, .86);
+}
+
+.privacy-banner__content a {
+    color: #fff;
+    text-decoration: underline;
+    text-underline-offset: .2em;
+}
+
+.privacy-page {
+    min-height: 100vh;
+    background: #f7f5f1;
+    color: #3a3a3a;
+}
+
+.privacy-page__header {
+    padding: 28px 0;
+    background: var(--feter-dark);
+}
+
+.privacy-page__brand {
+    color: var(--feter-gold);
+    font-family: 'runethia', 'Playfair Display', serif;
+    font-size: clamp(1.7rem, 4vw, 3rem);
+    white-space: nowrap;
+}
+
+.privacy-page__brand:hover,
+.privacy-page__brand:focus {
+    color: #d4b77c;
+    text-decoration: none;
+}
+
+.privacy-page__main {
+    max-width: 860px;
+    padding-top: 72px;
+    padding-bottom: 72px;
+}
+
+.privacy-page__main h1,
+.privacy-page__main h2 {
+    font-family: 'Playfair Display', serif;
+    color: #232323;
+}
+
+.privacy-page__main h1 {
+    margin-bottom: 12px;
+    font-size: clamp(2.3rem, 6vw, 4.2rem);
+}
+
+.privacy-page__main h2 {
+    margin-top: 40px;
+    margin-bottom: 14px;
+    font-size: 2.2rem;
+}
+
+.privacy-page__main p,
+.privacy-page__main li {
+    font-size: 1.6rem;
+    line-height: 1.75;
+}
+
+.privacy-page__main li + li {
+    margin-top: 8px;
+}
+
+.privacy-page__updated {
+    margin-bottom: 42px;
+    color: #6b6b6b;
+}
+
+.privacy-page__notice {
+    margin-top: 48px;
+    padding: 20px 22px;
+    border-left: 4px solid var(--feter-gold);
+    background: #fff;
+}
+
+.privacy-page__footer {
+    padding: 28px 0;
+    background: var(--feter-dark);
+    color: rgba(255, 255, 255, .72);
+}
+
+.privacy-page__footer a {
+    color: #fff;
+}
+
+.privacy-banner__actions {
+    display: flex;
+    flex: 0 0 auto;
+    gap: 10px;
+}
+
+.privacy-button {
+    min-height: 44px;
+    padding: 10px 16px;
+    border: 1px solid var(--feter-gold);
+    border-radius: 6px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.privacy-button--primary {
+    background: var(--feter-gold);
+    color: #171717;
+}
+
+.privacy-button--secondary {
+    background: transparent;
+    color: #fff;
+}
+
+@media (max-width: 991px) {
+    .hero-section {
+        background-image: linear-gradient(rgba(0, 0, 0, .8), rgba(0, 0, 0, .8)),
+            url('../img/nat-marco-maos-2026-960.jpg');
+        background-attachment: scroll;
+    }
+
+    .assurance-section {
+        background-attachment: scroll;
+    }
+
+    .practice-card-secondary {
+        margin-top: 0;
+    }
+
+    .team-section {
+        width: 92%;
+    }
+}
+
+@media (max-width: 767px) {
+    .tituloPrincipal {
+        margin-top: 20%;
+    }
+
+    .adjustMarginTop {
+        margin-top: 15%;
+    }
+
+    .nameNatMarco {
+        font-size: clamp(1.15rem, 5.6vw, 1.8rem);
+    }
+
+    .header-logo-column {
+        width: calc(100% - 64px);
+    }
+
+    .team-row .team-member {
+        margin-bottom: 3rem;
+    }
+
+    .team-row .team-wrap {
+        margin-bottom: 1.5rem;
+    }
+
+    .privacy-banner {
+        right: 10px;
+        bottom: 10px;
+        left: 10px;
+    }
+
+    .privacy-banner__content,
+    .privacy-banner__actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .privacy-banner__content {
+        gap: 14px;
+    }
+
+    .whatsapp-fab {
+        right: 14px;
+        bottom: 14px;
+        width: 52px;
+        padding: 0;
+        justify-content: center;
+    }
+
+    .whatsapp-fab span {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+    }
+}
