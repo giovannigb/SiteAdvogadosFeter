@@ -214,7 +214,7 @@ button:focus-visible {
 .hero-section {
     background-image: linear-gradient(rgba(0, 0, 0, .8), rgba(0, 0, 0, .8)),
         url('../img/nat-marco-maos-2026-1920.jpg');
-    background-position: 50% 65%;
+    background-position: 50% 25%;
     background-repeat: no-repeat;
     background-attachment: scroll;
     background-size: cover;
@@ -579,6 +579,14 @@ button:focus-visible {
         height: 1px;
         overflow: hidden;
         clip: rect(0, 0, 0, 0);
+    }
+}
+
+/* Em telas muito largas, o cover recorta mais a altura da foto.
+   O ponto focal mais alto preserva as cabeças sem ocultar o aperto de mãos. */
+@media (min-aspect-ratio: 2/1) {
+    .hero-section {
+        background-position: 50% 20%;
     }
 }
 
