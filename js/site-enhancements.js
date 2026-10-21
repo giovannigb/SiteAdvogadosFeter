@@ -5,6 +5,7 @@
     var banner = document.querySelector('[data-privacy-banner]');
     var menuButton = document.querySelector('.s-header__trigger');
     var experience = document.getElementById('tempoAtuacao');
+    var whatsappForm = document.querySelector('[data-whatsapp-form]');
 
     function setMenuState() {
         if (!menuButton) return;
@@ -82,6 +83,25 @@
 
     if (experience) {
         experience.textContent = String(new Date().getFullYear() - 1996);
+    }
+
+    if (whatsappForm) {
+        whatsappForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+            if (!whatsappForm.reportValidity()) return;
+
+            var data = new FormData(whatsappForm);
+            var name = String(data.get('name') || '').trim();
+            var area = String(data.get('area') || '').trim();
+            var summary = String(data.get('summary') || '').trim();
+            var message = 'Olá! Meu nome é ' + name + '. Gostaria de atendimento sobre ' + area + '.';
+
+            if (summary) {
+                message += '\n\nResumo: ' + summary;
+            }
+
+            window.open('https://wa.me/5551985187304?text=' + encodeURIComponent(message), '_blank', 'noopener,noreferrer');
+        });
     }
 
     if (menuButton) {

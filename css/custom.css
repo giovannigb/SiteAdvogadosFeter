@@ -231,15 +231,54 @@ button:focus-visible {
 }
 
 .practice-row {
-    margin-top: -1%;
+    position: relative;
+    z-index: 1;
+    margin-top: 0;
 }
 
-.practice-card-secondary {
-    margin-top: -8%;
+.practice-card {
+    position: relative;
+}
+
+.practice-row-separator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 1px;
+    margin: 0 clamp(30px, 8vw, 130px);
+    background: linear-gradient(to right, transparent, rgba(185, 151, 91, .72), transparent);
+}
+
+.practice-row-separator span {
+    width: 8px;
+    height: 8px;
+    border: 1px solid var(--feter-gold);
+    background: #fff;
+    transform: rotate(45deg);
 }
 
 .practice-title {
     text-transform: none;
+}
+
+.practice-link {
+    position: relative;
+    z-index: 5;
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    margin-top: 1rem;
+    color: #866839;
+    font-weight: 700;
+    gap: .45rem;
+    text-decoration: underline;
+    text-underline-offset: .25em;
+    pointer-events: auto;
+}
+
+.practice-link:hover,
+.practice-link:focus {
+    color: #4d391d;
 }
 
 .assurance-section {
@@ -305,6 +344,124 @@ button:focus-visible {
 .contact-link:hover,
 .contact-link:focus {
     color: #fff;
+}
+
+.contact-guide {
+    display: grid;
+    grid-template-columns: minmax(0, .8fr) minmax(0, 1.4fr);
+    max-width: 1040px;
+    margin: 0 auto;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, .24);
+    border-radius: 16px;
+    background: #fff;
+    box-shadow: 0 20px 55px rgba(0, 0, 0, .18);
+}
+
+.contact-guide__intro {
+    padding: 42px 36px;
+    background: #171717;
+    color: rgba(255, 255, 255, .78);
+}
+
+.contact-guide__intro h3 {
+    margin: 0 0 18px;
+    color: #fff;
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem;
+    line-height: 1.18;
+}
+
+.contact-guide__intro p {
+    color: rgba(255, 255, 255, .72);
+    line-height: 1.65;
+}
+
+.contact-guide__intro .contact-guide__eyebrow {
+    margin-bottom: 12px;
+    color: #d4b77c;
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+}
+
+.contact-guide__form {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding: 38px;
+    gap: 22px;
+}
+
+.contact-guide__field {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-guide__field--wide {
+    grid-column: 1 / -1;
+}
+
+.contact-guide__field label {
+    margin-bottom: 8px;
+    color: #292929;
+    font-weight: 700;
+}
+
+.contact-guide__field label span {
+    color: #747474;
+    font-weight: 400;
+}
+
+.contact-guide__field input,
+.contact-guide__field select,
+.contact-guide__field textarea {
+    width: 100%;
+    min-height: 48px;
+    padding: 12px 14px;
+    border: 1px solid #c9c3b9;
+    border-radius: 7px;
+    background: #fff;
+    color: #242424;
+    font: inherit;
+}
+
+.contact-guide__field textarea {
+    resize: vertical;
+}
+
+.contact-guide__field input:focus,
+.contact-guide__field select:focus,
+.contact-guide__field textarea:focus {
+    border-color: #866839;
+    outline: 3px solid rgba(185, 151, 91, .25);
+}
+
+.contact-guide__action button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 52px;
+    padding: 12px 22px;
+    border: 0;
+    border-radius: 999px;
+    background: #168b43;
+    color: #fff;
+    font-weight: 700;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.contact-guide__action button:hover,
+.contact-guide__action button:focus {
+    background: #106c33;
+}
+
+.contact-guide__action p {
+    margin: 12px 0 0;
+    color: #696969;
+    font-size: 1.25rem;
+    line-height: 1.45;
 }
 
 .privacy-settings {
@@ -515,10 +672,6 @@ button:focus-visible {
         background-attachment: scroll;
     }
 
-    .practice-card-secondary {
-        margin-top: 0;
-    }
-
     .team-section {
         width: 92%;
     }
@@ -541,12 +694,33 @@ button:focus-visible {
         width: calc(100% - 64px);
     }
 
+    .practice-row-separator {
+        margin: 12px 28px 6px;
+    }
+
     .team-row .team-member {
         margin-bottom: 3rem;
     }
 
     .team-row .team-wrap {
         margin-bottom: 1.5rem;
+    }
+
+    .contact-guide {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-guide__intro,
+    .contact-guide__form {
+        padding: 28px 22px;
+    }
+
+    .contact-guide__form {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-guide__field--wide {
+        grid-column: auto;
     }
 
     .privacy-banner {

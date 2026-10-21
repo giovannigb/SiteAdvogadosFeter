@@ -10,4 +10,34 @@
         <changefreq>yearly</changefreq>
         <priority>0.4</priority>
     </url>
+    <url>
+        <loc>https://advogadosfeter.com.br/areas/direito-de-familia.html</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://advogadosfeter.com.br/areas/direito-das-sucessoes.html</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://advogadosfeter.com.br/areas/direito-imobiliario.html</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://advogadosfeter.com.br/areas/direito-contratual.html</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://advogadosfeter.com.br/areas/direito-do-consumidor.html</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://advogadosfeter.com.br/areas/direito-do-trabalho.html</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
 </urlset>
