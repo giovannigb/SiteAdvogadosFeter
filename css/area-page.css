@@ -11,7 +11,7 @@ a:focus-visible { outline: 3px solid #f5c66a; outline-offset: 4px; }
 .area-nav__links { display: flex; align-items: center; gap: 22px; }
 .area-nav__links a { color: rgba(255,255,255,.82); font-weight: 700; text-decoration: none; }
 .area-nav__links .area-nav__cta { padding: 10px 18px; border: 1px solid var(--gold); border-radius: 999px; color: #fff; }
-.area-hero { padding: 92px 0 105px; background: linear-gradient(120deg,rgba(0,0,0,.91),rgba(0,0,0,.72)), url('../img/nat-marco-maos-2026-1920.jpg') center 25% / cover; color: #fff; }
+.area-hero { padding: 92px 0 105px; background-color: #191919; background-image: linear-gradient(120deg,rgba(0,0,0,.91),rgba(0,0,0,.72)),url('../img/nat-marco-maos-2026-1920.jpg'); background-image: linear-gradient(120deg,rgba(0,0,0,.91),rgba(0,0,0,.72)),image-set(url('../img/nat-marco-maos-2026-1920.avif') type('image/avif'),url('../img/nat-marco-maos-2026-1920.webp') type('image/webp'),url('../img/nat-marco-maos-2026-1920.jpg') type('image/jpeg')); background-position:center 25%; background-size:cover; color: #fff; }
 .area-breadcrumb { margin: 0 0 28px; color: rgba(255,255,255,.66); font-size: .92rem; }
 .area-breadcrumb a { color: #e0c794; }
 .area-kicker { margin: 0 0 12px; color: #e0c794; font-size: .82rem; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; }
@@ -25,6 +25,15 @@ a:focus-visible { outline: 3px solid #f5c66a; outline-offset: 4px; }
 .area-topics { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); margin: 28px 0 0; padding: 0; list-style: none; gap: 14px; }
 .area-topics li { padding: 18px 19px; border-left: 3px solid var(--gold); background: #fff; box-shadow: 0 8px 24px rgba(0,0,0,.05); }
 .area-note { margin-top: 42px; padding: 20px 22px; border: 1px solid #ded8ce; border-radius: 8px; background: #fff; color: var(--muted); font-size: .94rem; }
+.area-faq { margin-top: 54px; }
+.area-faq h2 { margin-top: 0; }
+.area-faq details { border-bottom: 1px solid #d8d1c6; background: #fff; }
+.area-faq details:first-of-type { border-top: 1px solid #d8d1c6; }
+.area-faq summary { position: relative; padding: 20px 52px 20px 20px; color: var(--ink); font-weight: 700; cursor: pointer; list-style: none; }
+.area-faq summary::-webkit-details-marker { display: none; }
+.area-faq summary::after { position: absolute; top: 50%; right: 20px; color: var(--gold-dark); content: '+'; font-size: 1.6rem; line-height: 1; transform: translateY(-50%); }
+.area-faq details[open] summary::after { content: '−'; }
+.area-faq details p { margin: 0; padding: 0 20px 22px; color: #555; }
 .area-card { position: sticky; top: 24px; padding: 32px; border-top: 4px solid var(--gold); background: var(--ink); box-shadow: 0 16px 45px rgba(0,0,0,.16); color: rgba(255,255,255,.76); }
 .area-card h2 { margin: 0 0 14px; color: #fff; font-family: 'Playfair Display', serif; font-size: 2rem; line-height: 1.2; }
 .area-card__button { display: flex; align-items: center; justify-content: center; min-height: 50px; margin-top: 24px; padding: 11px 18px; border-radius: 999px; background: #168b43; color: #fff; font-weight: 700; text-align: center; text-decoration: none; }
@@ -33,6 +42,6 @@ a:focus-visible { outline: 3px solid #f5c66a; outline-offset: 4px; }
 .area-card__links a { color: rgba(255,255,255,.83); }
 .area-footer { padding: 32px 0; background: var(--ink); color: rgba(255,255,255,.63); text-align: center; }
 .area-footer a { color: #fff; }
-@media (max-width:800px) { .area-nav__links a:not(.area-nav__cta) { display:none; } .area-hero { padding:64px 0 74px; background-image:linear-gradient(120deg,rgba(0,0,0,.91),rgba(0,0,0,.72)),url('../img/nat-marco-maos-2026-960.jpg'); } .area-layout { grid-template-columns:1fr; gap:46px; } .area-card { position:static; } }
+@media (max-width:800px) { .area-nav__links a:not(.area-nav__cta) { display:none; } .area-hero { padding:64px 0 74px; background-image:linear-gradient(120deg,rgba(0,0,0,.91),rgba(0,0,0,.72)),url('../img/nat-marco-maos-2026-960.jpg'); background-image:linear-gradient(120deg,rgba(0,0,0,.91),rgba(0,0,0,.72)),image-set(url('../img/nat-marco-maos-2026-960.avif') type('image/avif'),url('../img/nat-marco-maos-2026-960.webp') type('image/webp'),url('../img/nat-marco-maos-2026-960.jpg') type('image/jpeg')); } .area-layout { grid-template-columns:1fr; gap:46px; } .area-card { position:static; } }
 @media (max-width:540px) { .area-nav,.area-container { width:min(100% - 28px,1120px); } .area-nav__cta { padding:9px 13px !important; font-size:.88rem; } .area-topics { grid-template-columns:1fr; } }
 @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }

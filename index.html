@@ -247,10 +247,18 @@
             <div class="col-md-6 col-xs-8 col-xs-offset-2 g-full-width--xs g-full-width-offset-0--xs g-hor-centered-row__col imagem-coluna"
     >
                 <div class="wow fadeInUp" data-wow-duration=".3" data-wow-delay=".1s">
-                    <img class="img-responsive" src="img/nat-marco-2026-960.jpg"
-                        srcset="img/nat-marco-2026-480.jpg 480w, img/nat-marco-2026-960.jpg 960w"
-                        sizes="(max-width: 991px) 100vw, 50vw" width="960" height="640"
-                        loading="lazy" decoding="async" alt="Natália Feter e Marco Feter no escritório">
+                    <picture>
+                        <source type="image/avif"
+                            srcset="img/nat-marco-2026-480.avif 480w, img/nat-marco-2026-960.avif 960w"
+                            sizes="(max-width: 991px) 100vw, 50vw">
+                        <source type="image/webp"
+                            srcset="img/nat-marco-2026-480.webp 480w, img/nat-marco-2026-960.webp 960w"
+                            sizes="(max-width: 991px) 100vw, 50vw">
+                        <img class="img-responsive" src="img/nat-marco-2026-960.jpg"
+                            srcset="img/nat-marco-2026-480.jpg 480w, img/nat-marco-2026-960.jpg 960w"
+                            sizes="(max-width: 991px) 100vw, 50vw" width="960" height="640"
+                            loading="lazy" decoding="async" alt="Natália Feter e Marco Feter no escritório">
+                    </picture>
                 </div>
             </div>
         </div>
@@ -541,8 +549,12 @@
             <div class="col-md-3 col-sm-3 team-wrap">
                 <div class="team-member text-center">
                     <div class="team-img">
-                        <img src="img/nat2026-640.jpg" width="640" height="682" loading="lazy" decoding="async"
-                            alt="Retrato da advogada Natália Feter">
+                        <picture>
+                            <source type="image/avif" srcset="img/nat2026-640.avif">
+                            <source type="image/webp" srcset="img/nat2026-640.webp">
+                            <img src="img/nat2026-640.jpg" width="640" height="682" loading="lazy"
+                                decoding="async" alt="Retrato da advogada Natália Feter">
+                        </picture>
                         <div class="overlay team-overlay">
                             <div class="team-details text-center">
                                 <div class="socials mt-20 adjustMarginTop">
@@ -574,8 +586,12 @@
             <div class="col-md-3 col-sm-3 team-wrap">
                 <div class="team-member  text-center">
                     <div class="team-img">
-                        <img src="img/marco2026-640.jpg" width="640" height="763" loading="lazy" decoding="async"
-                            alt="Retrato do advogado Marco Feter">
+                        <picture>
+                            <source type="image/avif" srcset="img/marco2026-640.avif">
+                            <source type="image/webp" srcset="img/marco2026-640.webp">
+                            <img src="img/marco2026-640.jpg" width="640" height="763" loading="lazy"
+                                decoding="async" alt="Retrato do advogado Marco Feter">
+                        </picture>
                         <div class="overlay team-overlay">
                             <div class="team-details text-center">
                                 <div class="socials mt-20 adjustMarginTop">
@@ -748,7 +764,12 @@
             </div>
 
         </div>
-        <img class="s-mockup-v2" src="img/mockups/pencil-01.png" loading="lazy" decoding="async" alt="">
+        <picture>
+            <source type="image/avif" srcset="img/mockups/pencil-01.avif">
+            <source type="image/webp" srcset="img/mockups/pencil-01.webp">
+            <img class="s-mockup-v2" src="img/mockups/pencil-01.png" width="401" height="229" loading="lazy"
+                decoding="async" alt="">
+        </picture>
         <!-- Event snippet for Lead Site conversion page -->
 
     </div>
