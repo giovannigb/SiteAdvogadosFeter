@@ -37,7 +37,6 @@ summary:focus-visible {
   outline: 3px solid #f5c66a;
   outline-offset: 4px;
 }
-.area-nav,
 .area-container {
   width: min(1160px, calc(100% - 48px));
   margin: 0 auto;
@@ -56,13 +55,16 @@ summary:focus-visible {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: min(1320px, calc(100% - 48px));
+  margin: 0 auto;
   min-height: 104px;
-  gap: 30px;
+  gap: clamp(24px, 4vw, 72px);
 }
 .area-brand {
+  flex: 0 1 auto;
   color: var(--gold-light);
   font-family: "runethia", Arial, sans-serif;
-  font-size: clamp(1rem, 5vw, 3.5rem);
+  font-size: clamp(2rem, 3.25vw, 3.25rem);
   font-style: normal;
   font-weight: 400;
   line-height: 1;
@@ -71,12 +73,14 @@ summary:focus-visible {
 }
 .area-nav__links {
   display: flex;
+  flex: 0 0 auto;
   align-items: center;
-  gap: 28px;
+  margin-left: auto;
+  gap: clamp(16px, 2vw, 30px);
 }
 .area-nav__links a {
   color: rgba(255, 255, 255, 0.9);
-  font-size: 0.82rem;
+  font-size: clamp(0.74rem, 0.8vw, 0.82rem);
   font-weight: 700;
   letter-spacing: 0.09em;
   text-decoration: none;
@@ -87,7 +91,7 @@ summary:focus-visible {
   color: var(--gold-light);
 }
 .area-nav__links .area-nav__cta {
-  padding: 11px 20px;
+  padding: 10px 18px;
   border: 1px solid var(--gold);
   border-radius: 999px;
   color: #fff;
@@ -465,13 +469,42 @@ summary:focus-visible {
   font-weight: 700;
   text-decoration: none;
 }
-@media (max-width: 900px) {
-  .area-nav__links a:not(.area-nav__cta) {
-    display: none;
+@media (max-width: 1120px) {
+  .area-nav {
+    gap: 24px;
+  }
+  .area-brand {
+    font-size: clamp(1.8rem, 3.6vw, 2.7rem);
+  }
+  .area-nav__links {
+    gap: 18px;
+  }
+  .area-nav__links a {
+    letter-spacing: 0.06em;
+  }
+  .area-nav__links .area-nav__cta {
+    padding: 9px 14px;
+  }
+}
+@media (max-width: 1020px) {
+  .area-nav {
+    flex-wrap: wrap;
+    padding: 16px 0 14px;
+    gap: 10px;
+  }
+  .area-brand {
+    flex: 1 1 100%;
+    text-align: center;
+  }
+  .area-nav__links {
+    flex: 1 1 100%;
+    justify-content: center;
+    margin-left: 0;
+    gap: clamp(22px, 5vw, 44px);
   }
   .area-hero {
     min-height: 560px;
-    padding: 150px 0 92px;
+    padding: 190px 0 92px;
     background-image:
       linear-gradient(110deg, rgba(0, 0, 0, 0.91), rgba(0, 0, 0, 0.68)),
       url("../img/nat-marco-maos-2026-960.jpg");
@@ -497,22 +530,47 @@ summary:focus-visible {
     grid-column: 1/-1;
   }
 }
+@media (max-width: 700px) {
+  .area-nav {
+    flex-wrap: wrap;
+    padding: 14px 0 12px;
+    gap: 8px;
+  }
+  .area-brand {
+    flex: 1 1 100%;
+    text-align: center;
+  }
+  .area-nav__links {
+    flex: 1 1 100%;
+    justify-content: center;
+    margin-left: 0;
+    gap: 0;
+  }
+  .area-nav__links a:not(.area-nav__cta) {
+    display: none;
+  }
+  .area-hero {
+    padding-top: 175px;
+  }
+}
 @media (max-width: 600px) {
-  .area-nav,
   .area-container {
     width: min(100% - 30px, 1160px);
   }
   .area-nav {
+    width: calc(100% - 30px);
     min-height: 88px;
+    gap: 10px;
   }
   .area-brand {
     max-width: none;
-    font-size: clamp(1.15rem, 5.6vw, 1.8rem);
+    font-size: clamp(1.3rem, 5.6vw, 1.7rem);
     white-space: nowrap;
   }
   .area-nav__cta {
-    padding: 9px 13px !important;
-    font-size: 0.7rem !important;
+    padding: 8px 11px !important;
+    font-size: 0.66rem !important;
+    letter-spacing: 0.05em !important;
   }
   .area-hero {
     min-height: 600px;
