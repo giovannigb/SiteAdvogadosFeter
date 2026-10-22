@@ -30,11 +30,10 @@
         content="Advocacia familiar, atendimento próximo e experiência em Direito de Família e Sucessões.">
     <meta name="twitter:image" content="https://advogadosfeter.com.br/img/nat-marco-maos-2026-1920.jpg">
 
-    <!-- Web Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i|Montserrat:400,700|Playfair+Display:400,700&amp;display=swap"
-        rel="stylesheet">
+    <!-- Critical fonts -->
+    <link rel="preload" href="vendor/fonts/lato-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="vendor/fonts/playfair-display-400-700-latin.woff2" as="font" type="font/woff2"
+        crossorigin>
     <link rel="preload" href="vendor/themify/fonts/runethia/runethia.woff2" as="font" type="font/woff2"
         crossorigin>
     <link rel="preload" href="img/nat-marco-maos-2026-1920.avif" as="image" type="image/avif"
@@ -42,17 +41,10 @@
     <link rel="preload" href="img/nat-marco-maos-2026-960.avif" as="image" type="image/avif"
         media="(max-width: 991px)" fetchpriority="high">
 
-    <!-- Vendor Styles -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="vendor/themify/themify.css" rel="stylesheet" type="text/css" />
-
-    <!-- Theme Styles -->
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
-    <link href="css/global/global.css" rel="stylesheet" type="text/css" />
-
-    <!-- Theme Skins -->
-    <link href="css/theme/gold.css" rel="stylesheet" type="text/css" />
-    <link href="css/custom.css" rel="stylesheet" type="text/css" />
+    <!-- Critical styles first; the complete bundle loads without blocking the initial render. -->
+    <link href="css/site-critical.min.css" rel="stylesheet">
+    <link rel="preload" href="css/site.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="css/site.min.css" rel="stylesheet"></noscript>
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
