@@ -1,5 +1,36 @@
 /* Ajustes específicos do site. Mantidos fora dos arquivos de fornecedores. */
 
+@font-face {
+    font-family: 'runethia';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('../vendor/themify/fonts/runethia/runethia.woff2') format('woff2');
+}
+
+.skip-link {
+    position: fixed;
+    top: 12px;
+    left: 12px;
+    z-index: 2000;
+    padding: 12px 18px;
+    border-radius: 6px;
+    background: #fff;
+    color: #171717;
+    font-weight: 700;
+    transform: translateY(-160%);
+    transition: transform .2s ease;
+}
+
+.skip-link:focus {
+    color: #171717;
+    transform: translateY(0);
+}
+
+#main-content:focus {
+    outline: none;
+}
+
 .nameNatMarco {
     display: inline-block;
     font-family: 'runethia', Arial, sans-serif;
@@ -83,12 +114,12 @@
 
 .fixed-facebook,
 .fixed-facebook span {
-    background-color: #00aae5;
+    background-color: #00749c;
 }
 
 .fixed-instagrem,
 .fixed-instagrem span {
-    background-color: #ed2b29;
+    background-color: #a91f2b;
 }
 
 .team-member,
@@ -181,6 +212,14 @@ html {
 
 body {
     overflow-x: hidden;
+}
+
+body.menu-open {
+    overflow: hidden;
+}
+
+.g-color--primary {
+    color: #806238 !important;
 }
 
 .header-logo-column {
@@ -296,6 +335,106 @@ button:focus-visible {
     );
 }
 
+.testimonials-section {
+    padding: 8rem 0;
+    background: #fff;
+}
+
+.testimonials-section__eyebrow {
+    margin: 0 0 1.2rem;
+    color: #806238;
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+}
+
+.testimonials-section h2 {
+    max-width: 760px;
+    margin: 0 auto 4.2rem;
+    color: #242424;
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 5vw, 4.2rem);
+    line-height: 1.2;
+}
+
+.testimonials {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.testimonials__viewport {
+    min-height: 230px;
+}
+
+.testimonial {
+    margin: 0;
+    padding: 0 clamp(1.5rem, 7vw, 8rem);
+}
+
+.testimonial blockquote {
+    margin: 0 0 3rem;
+    color: #333;
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.2rem, 3.4vw, 2.8rem);
+    font-style: italic;
+    line-height: 1.5;
+}
+
+.testimonial figcaption {
+    position: relative;
+    padding-top: 2.4rem;
+    color: #694f2d;
+    font-size: 1.6rem;
+}
+
+.testimonial figcaption::before {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 100px;
+    height: 1px;
+    background: #b8b8b8;
+    content: '';
+    transform: translateX(-50%);
+}
+
+.testimonials__controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 3.2rem;
+    gap: 1.8rem;
+}
+
+.testimonials__controls button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    padding: 0;
+    border: 1px solid #806238;
+    border-radius: 50%;
+    background: #fff;
+    color: #5f4728;
+    font-size: 2.2rem;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.testimonials__controls button:hover,
+.testimonials__controls button:focus-visible {
+    background: #806238;
+    color: #fff;
+}
+
+.testimonials__controls span {
+    min-width: 60px;
+    color: #444;
+    font-size: 1.5rem;
+}
+
 .carousel-control {
     line-height: 3.4rem;
 }
@@ -363,6 +502,14 @@ button:focus-visible {
     color: rgba(255, 255, 255, .8);
     text-decoration: underline;
     text-underline-offset: .2em;
+}
+
+.contact-section {
+    background: #806238 !important;
+}
+
+.contact-section .g-color--white-opacity {
+    color: #fff !important;
 }
 
 .contact-link:hover,
@@ -470,7 +617,7 @@ button:focus-visible {
     padding: 12px 22px;
     border: 0;
     border-radius: 999px;
-    background: #168b43;
+    background: #11763a;
     color: #fff;
     font-weight: 700;
     gap: 10px;
@@ -479,7 +626,16 @@ button:focus-visible {
 
 .contact-guide__action button:hover,
 .contact-guide__action button:focus {
-    background: #106c33;
+    background: #0b592b;
+}
+
+.whatsapp-mark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: .76em;
+    font-weight: 800;
+    letter-spacing: -.04em;
 }
 
 .contact-guide__action p {
@@ -540,8 +696,12 @@ button:focus-visible {
     text-decoration: none;
 }
 
-.whatsapp-fab .fa {
-    font-size: 24px;
+.whatsapp-fab .whatsapp-mark {
+    font-size: 1.4rem;
+}
+
+.s-back-to-top {
+    background: #00677a;
 }
 
 .privacy-banner[hidden] {
@@ -778,7 +938,7 @@ button:focus-visible {
         justify-content: center;
     }
 
-    .whatsapp-fab span {
+    .whatsapp-fab__label {
         position: absolute;
         width: 1px;
         height: 1px;
@@ -806,5 +966,9 @@ button:focus-visible {
         animation-duration: .01ms !important;
         animation-iteration-count: 1 !important;
         transition-duration: .01ms !important;
+    }
+
+    .assurance-section {
+        background-attachment: scroll;
     }
 }
