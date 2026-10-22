@@ -1,6 +1,7 @@
 # Dependências e artefatos locais
 node_modules/
 dev-tools/node_modules/
+.pnpm-store/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*

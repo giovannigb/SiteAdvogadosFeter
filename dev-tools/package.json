@@ -1,0 +1,12 @@
+{
+  "name": "advogados-feter-dev-tools",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build:css": "node build-css.mjs"
+  },
+  "devDependencies": {
+    "clean-css": "5.3.3",
+    "purgecss": "7.0.2"
+  }
+}

@@ -19,11 +19,11 @@
 }
 html {
   scroll-behavior: smooth;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 body {
   margin: 0;
-  overflow-x: hidden;
+  overflow-x: clip;
   background: #fff;
   color: #333;
   font-family: "Lato", Arial, sans-serif;
@@ -431,8 +431,8 @@ button:focus-visible {
 }
 .area-card::after {
   position: absolute;
-  right: -55px;
-  bottom: -75px;
+  right: 0;
+  bottom: -90px;
   width: 180px;
   height: 180px;
   border: 1px solid rgba(185, 151, 91, 0.28);
