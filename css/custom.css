@@ -963,9 +963,9 @@ button:focus-visible {
     *,
     *::before,
     *::after {
-        animation-duration: .01ms !important;
+        animation-duration: 1ms !important;
         animation-iteration-count: 1 !important;
-        transition-duration: .01ms !important;
+        transition-duration: 1ms !important;
     }
 
     .assurance-section {

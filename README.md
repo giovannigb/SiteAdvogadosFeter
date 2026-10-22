@@ -1,9 +1,10 @@
 # Site Advogados Feter
 
-## Gerar os arquivos CSS de produção
+## Gerar os arquivos de produção
 
-As folhas `css/site.min.css`, `css/site-critical.min.css` e
-`css/area-page.min.css` são geradas a partir dos arquivos CSS-fonte do projeto.
+As folhas `css/site.min.css` e `css/area-page.min.css`, o JavaScript
+`js/site-enhancements.min.js` e o CSS crítico incorporado em `index.html` são
+gerados a partir dos arquivos-fonte do projeto.
 
 Na primeira utilização, instale as dependências isoladas das ferramentas:
 
@@ -11,12 +12,12 @@ Na primeira utilização, instale as dependências isoladas das ferramentas:
 pnpm --dir dev-tools install
 ```
 
-Depois de qualquer alteração nos arquivos CSS-fonte, regenere os três pacotes
+Depois de qualquer alteração nos arquivos CSS ou JavaScript, regenere os pacotes
 com um único comando:
 
 ```powershell
-pnpm --dir dev-tools run build:css
+pnpm --dir dev-tools run build:assets
 ```
 
 O gerador consolida os estilos, ajusta os caminhos dos recursos, remove regras
-não utilizadas da página principal e minifica os arquivos publicados.
+não utilizadas, incorpora o CSS crítico e minifica os arquivos publicados.

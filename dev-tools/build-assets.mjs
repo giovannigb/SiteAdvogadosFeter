@@ -3,6 +3,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import CleanCSS from "clean-css";
 import { PurgeCSS } from "purgecss";
+import { minify as minifyJavaScript } from "terser";
 
 const toolsDirectory = path.dirname(fileURLToPath(import.meta.url));
 const projectDirectory = path.resolve(toolsDirectory, "..");
@@ -23,6 +24,8 @@ const siteContent = [
   "politica-de-privacidade.html",
   "js/site-enhancements.js",
 ];
+
+const criticalStylePattern = /<style data-critical-css>[\s\S]*?<\/style>/;
 
 function toWebPath(value) {
   return value.split(path.sep).join("/");
@@ -63,6 +66,12 @@ function minify(css, outputName) {
   return `${result.styles}\n`;
 }
 
+function prepareHtmlForPurge(html) {
+  return html
+    .replace(criticalStylePattern, '<style data-critical-css></style>')
+    .replace(/<!--[\s\S]*?-->/g, "");
+}
+
 async function purge(css, content) {
   const [result] = await new PurgeCSS().purge({
     content,
@@ -80,32 +89,67 @@ async function writeCss(fileName, css) {
   process.stdout.write(`${toWebPath(path.relative(projectDirectory, outputPath))}: ${size} bytes\n`);
 }
 
+async function writeJavaScript(fileName, source) {
+  const result = await minifyJavaScript(source, {
+    compress: true,
+    mangle: true,
+    format: { comments: false },
+  });
+  if (!result.code) throw new Error(`${fileName}: a minificação não produziu conteúdo.`);
+
+  const outputPath = path.join(projectDirectory, fileName);
+  const output = `${result.code}\n`;
+  await fs.writeFile(outputPath, output, "utf8");
+  process.stdout.write(`${fileName}: ${Buffer.byteLength(output)} bytes\n`);
+}
+
 async function build() {
   const siteCss = await concatenateSources(siteSources);
-  const content = await Promise.all(
-    siteContent.map(async (file) => ({
-      raw: await fs.readFile(path.join(projectDirectory, file), "utf8"),
-      extension: path.extname(file).slice(1),
-    })),
-  );
+  const content = await Promise.all(siteContent.map(async (file) => {
+    const extension = path.extname(file).slice(1);
+    const raw = await fs.readFile(path.join(projectDirectory, file), "utf8");
+    return {
+      raw: extension === "html" ? prepareHtmlForPurge(raw) : raw,
+      extension,
+    };
+  }));
   const optimizedSiteCss = await purge(siteCss, content);
   await writeCss("site.min.css", minify(optimizedSiteCss, "site.min.css"));
 
-  const indexHtml = await fs.readFile(path.join(projectDirectory, "index.html"), "utf8");
+  const indexPath = path.join(projectDirectory, "index.html");
+  const indexHtml = await fs.readFile(indexPath, "utf8");
   const aboutStart = indexHtml.indexOf('<div id="about"');
   const floatingStart = indexHtml.indexOf("<!-- Back To Top -->");
   const scriptStart = indexHtml.indexOf("<!-- Script principal -->");
   if (aboutStart === -1 || floatingStart === -1 || scriptStart === -1) {
     throw new Error("Não foi possível localizar os limites do conteúdo crítico em index.html.");
   }
-  const criticalMarkup = `${indexHtml.slice(0, aboutStart)}\n${indexHtml.slice(floatingStart, scriptStart)}`;
+  const criticalMarkup = prepareHtmlForPurge(
+    `${indexHtml.slice(0, aboutStart)}\n${indexHtml.slice(floatingStart, scriptStart)}`,
+  );
   const criticalCss = await purge(optimizedSiteCss, [
     { raw: criticalMarkup, extension: "html" },
   ]);
-  await writeCss("site-critical.min.css", minify(criticalCss, "site-critical.min.css"));
+  const minifiedCriticalCss = minify(criticalCss, "CSS crítico").trim();
+  const criticalMatches = indexHtml.match(new RegExp(criticalStylePattern.source, "g")) || [];
+  if (criticalMatches.length !== 1) {
+    throw new Error("index.html deve conter exatamente um bloco <style data-critical-css>.");
+  }
+  const updatedIndex = indexHtml.replace(
+    criticalStylePattern,
+    `<style data-critical-css>\n${minifiedCriticalCss}\n    </style>`,
+  );
+  await fs.writeFile(indexPath, updatedIndex, "utf8");
+  process.stdout.write(`index.html CSS crítico: ${Buffer.byteLength(minifiedCriticalCss)} bytes\n`);
 
   const areaCss = await concatenateSources(["css/fonts.css", "css/area-page.css"]);
   await writeCss("area-page.min.css", minify(areaCss, "area-page.min.css"));
+
+  const siteJavaScript = await fs.readFile(
+    path.join(projectDirectory, "js/site-enhancements.js"),
+    "utf8",
+  );
+  await writeJavaScript("js/site-enhancements.min.js", siteJavaScript);
 }
 
 build().catch((error) => {

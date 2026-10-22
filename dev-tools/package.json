@@ -3,10 +3,12 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build:css": "node build-css.mjs"
+    "build:assets": "node build-assets.mjs",
+    "build:css": "node build-assets.mjs"
   },
   "devDependencies": {
     "clean-css": "5.3.3",
-    "purgecss": "7.0.2"
+    "purgecss": "7.0.2",
+    "terser": "5.44.0"
   }
 }
