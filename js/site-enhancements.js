@@ -6,6 +6,7 @@
     var menuButton = document.querySelector('.s-header__trigger');
     var experience = document.getElementById('tempoAtuacao');
     var whatsappForm = document.querySelector('[data-whatsapp-form]');
+    var metricsEnabled = false;
 
     function setMenuState() {
         if (!menuButton) return;
@@ -50,6 +51,55 @@
             'https://d335luupugsy2.cloudfront.net/js/loader-scripts/5739bca4-a4e8-47a2-9c5f-14ccf55226a8-loader.js',
             'feter-rd-station'
         );
+
+        metricsEnabled = true;
+    }
+
+    function sendMetric(name, parameters) {
+        if (!metricsEnabled || !window.gtag) return;
+        window.gtag('event', name, parameters || {});
+    }
+
+    function currentPracticeArea() {
+        var areaTitle = document.querySelector('.area-hero h1');
+        return areaTitle ? areaTitle.textContent.trim() : '';
+    }
+
+    function practiceAreaFromLink(link) {
+        var cardTitle = link.closest('.practice-card');
+
+        if (cardTitle) {
+            var heading = cardTitle.querySelector('h3');
+            if (heading) return heading.textContent.replace(/\s+/g, ' ').trim();
+        }
+
+        if (link.classList.contains('area-related__card')) {
+            var relatedTitle = link.querySelector('span');
+            if (relatedTitle) return relatedTitle.textContent.trim();
+        }
+
+        return '';
+    }
+
+    function whatsappLocation(link) {
+        if (link.classList.contains('area-card__button')) return 'area_sidebar';
+        if (link.classList.contains('area-whatsapp')) return 'area_floating_button';
+        if (link.classList.contains('whatsapp-fab')) return 'home_floating_button';
+        return 'link';
+    }
+
+    function trackWhatsAppLead(location, area) {
+        sendMetric('generate_lead', {
+            contact_method: 'whatsapp',
+            cta_location: location,
+            practice_area: area || 'geral'
+        });
+
+        if (metricsEnabled && window.fbq) {
+            window.fbq('track', 'Lead', {
+                content_name: area || location
+            });
+        }
     }
 
     function readConsent() {
@@ -100,9 +150,31 @@
                 message += '\n\nResumo: ' + summary;
             }
 
+            trackWhatsAppLead('home_contact_form', area);
+
             window.open('https://wa.me/5551985187304?text=' + encodeURIComponent(message), '_blank', 'noopener,noreferrer');
         });
     }
+
+    document.addEventListener('click', function (event) {
+        var target = event.target;
+        var link = target && target.closest ? target.closest('a') : null;
+        if (!link) return;
+
+        var href = link.getAttribute('href') || '';
+
+        if (href.indexOf('wa.me/') !== -1) {
+            trackWhatsAppLead(whatsappLocation(link), currentPracticeArea());
+        }
+
+        if (link.matches('.practice-link, .area-related__card')) {
+            sendMetric('select_content', {
+                content_type: 'practice_area',
+                item_id: practiceAreaFromLink(link) || href,
+                link_url: link.href
+            });
+        }
+    });
 
     if (menuButton) {
         menuButton.addEventListener('click', function () {

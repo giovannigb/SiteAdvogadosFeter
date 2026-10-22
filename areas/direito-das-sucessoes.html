@@ -84,6 +84,32 @@
         ]
       }
     </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Início",
+            "item": "https://advogadosfeter.com.br/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Áreas de atuação",
+            "item": "https://advogadosfeter.com.br/#areaatuacao"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Direito das Sucessões",
+            "item": "https://advogadosfeter.com.br/areas/direito-das-sucessoes.html"
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
     <header class="area-header">
@@ -116,10 +142,13 @@
     <main>
       <section class="area-hero">
         <div class="area-container">
-          <p class="area-breadcrumb">
-            <a href="../index.html">Início</a> / Áreas de atuação / Direito das
-            Sucessões
-          </p>
+          <nav class="area-breadcrumb" aria-label="Breadcrumb">
+            <ol>
+              <li><a href="../index.html">Início</a></li>
+              <li><a href="../index.html#areaatuacao">Áreas de atuação</a></li>
+              <li aria-current="page">Direito das Sucessões</li>
+            </ol>
+          </nav>
           <p class="area-kicker">Áreas de atuação</p>
           <h1>Direito das Sucessões</h1>
           <p class="area-hero__lead">
@@ -278,7 +307,12 @@
       </div>
       <div class="area-container area-footer__bottom">
         <span>© Advogados Feter</span>
-        <a href="../politica-de-privacidade.html">Política de Privacidade</a>
+        <div class="area-footer__privacy">
+          <button type="button" data-privacy-settings>
+            Preferências de privacidade
+          </button>
+          <a href="../politica-de-privacidade.html">Política de Privacidade</a>
+        </div>
       </div>
     </footer>
     <a
@@ -290,5 +324,38 @@
       title="WhatsApp"
       >WA</a
     >
+    <section
+      class="privacy-banner"
+      data-privacy-banner
+      hidden
+      aria-label="Preferências de privacidade"
+      aria-live="polite"
+    >
+      <div class="privacy-banner__content">
+        <p>
+          <strong>Sua privacidade importa.</strong> Usamos métricas opcionais
+          para entender o uso do site e melhorar a experiência. Você pode
+          continuar sem ativá-las. Consulte nossa
+          <a href="../politica-de-privacidade.html">Política de Privacidade</a>.
+        </p>
+        <div class="privacy-banner__actions">
+          <button
+            type="button"
+            class="privacy-button privacy-button--secondary"
+            data-privacy-decline
+          >
+            Continuar sem métricas
+          </button>
+          <button
+            type="button"
+            class="privacy-button privacy-button--primary"
+            data-privacy-accept
+          >
+            Aceitar métricas
+          </button>
+        </div>
+      </div>
+    </section>
+    <script src="../js/site-enhancements.js"></script>
   </body>
 </html>
