@@ -100,6 +100,9 @@ summary:focus-visible {
   background: var(--gold);
   color: #111;
 }
+.area-mobile-menu {
+  display: none;
+}
 .area-hero {
   display: flex;
   align-items: center;
@@ -266,6 +269,70 @@ summary:focus-visible {
   background: #fff;
   color: var(--muted);
   font-size: 0.94rem;
+}
+.area-related {
+  padding: 86px 0 96px;
+  background: #fff;
+}
+.area-related__header {
+  max-width: 700px;
+  margin-bottom: 34px;
+}
+.area-related__kicker {
+  margin: 0 0 10px;
+  color: var(--gold-dark);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.17em;
+  text-transform: uppercase;
+}
+.area-related h2 {
+  margin: 0;
+  color: var(--ink);
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+  line-height: 1.15;
+}
+.area-related__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+.area-related__card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 150px;
+  padding: 25px 24px;
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--gold);
+  background: var(--paper);
+  color: var(--ink);
+  text-decoration: none;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+.area-related__card:hover,
+.area-related__card:focus {
+  border-color: #cdb98f;
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.08);
+  color: var(--ink);
+  transform: translateY(-3px);
+}
+.area-related__card span {
+  font-family: "Playfair Display", serif;
+  font-size: 1.45rem;
+  font-weight: 700;
+  line-height: 1.25;
+}
+.area-related__card strong {
+  margin-top: 20px;
+  color: var(--gold-dark);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
 .area-faq {
   margin-top: 70px;
@@ -529,28 +596,93 @@ summary:focus-visible {
   .area-footer__intro {
     grid-column: 1/-1;
   }
+  .area-related__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 @media (max-width: 700px) {
   .area-nav {
-    flex-wrap: wrap;
-    padding: 14px 0 12px;
-    gap: 8px;
+    flex-wrap: nowrap;
+    padding: 0;
+    min-height: 88px;
+    gap: 12px;
   }
   .area-brand {
-    flex: 1 1 100%;
-    text-align: center;
+    flex: 0 1 auto;
+    font-size: clamp(1.45rem, 4.5vw, 1.8rem);
+    text-align: left;
   }
   .area-nav__links {
-    flex: 1 1 100%;
-    justify-content: center;
-    margin-left: 0;
-    gap: 0;
-  }
-  .area-nav__links a:not(.area-nav__cta) {
     display: none;
   }
+  .area-mobile-menu {
+    position: relative;
+    display: block;
+    flex: 0 0 auto;
+    margin-left: auto;
+  }
+  .area-mobile-menu summary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 42px;
+    padding: 8px 14px;
+    border: 1px solid var(--gold);
+    border-radius: 999px;
+    color: #fff;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    list-style: none;
+    text-transform: uppercase;
+    gap: 8px;
+  }
+  .area-mobile-menu summary::-webkit-details-marker {
+    display: none;
+  }
+  .area-mobile-menu summary::before {
+    content: "☰";
+    color: var(--gold-light);
+    font-size: 1rem;
+  }
+  .area-mobile-menu[open] summary {
+    background: var(--gold);
+    color: #111;
+  }
+  .area-mobile-menu[open] summary::before {
+    color: #111;
+    content: "×";
+  }
+  .area-mobile-menu__panel {
+    position: absolute;
+    z-index: 20;
+    top: calc(100% + 12px);
+    right: 0;
+    display: grid;
+    width: min(290px, calc(100vw - 30px));
+    overflow: hidden;
+    border: 1px solid rgba(185, 151, 91, 0.62);
+    background: #171717;
+    box-shadow: 0 18px 42px rgba(0, 0, 0, 0.34);
+  }
+  .area-mobile-menu__panel a {
+    padding: 14px 18px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.88);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+  .area-mobile-menu__panel a:last-child {
+    border-bottom: 0;
+    background: var(--gold);
+    color: #111;
+  }
   .area-hero {
-    padding-top: 175px;
+    padding-top: 150px;
   }
 }
 @media (max-width: 600px) {
@@ -564,7 +696,7 @@ summary:focus-visible {
   }
   .area-brand {
     max-width: none;
-    font-size: clamp(1.3rem, 5.6vw, 1.7rem);
+    font-size: clamp(1.2rem, 5vw, 1.5rem);
     white-space: nowrap;
   }
   .area-nav__cta {
@@ -592,6 +724,15 @@ summary:focus-visible {
   }
   .area-main {
     padding: 68px 0 82px;
+  }
+  .area-related {
+    padding: 64px 0 72px;
+  }
+  .area-related__grid {
+    grid-template-columns: 1fr;
+  }
+  .area-related__card {
+    min-height: 130px;
   }
   .area-topics {
     grid-template-columns: 1fr;
