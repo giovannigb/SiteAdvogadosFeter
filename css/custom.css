@@ -375,6 +375,7 @@ button:focus-visible {
     grid-template-columns: minmax(0, .8fr) minmax(0, 1.4fr);
     max-width: 1040px;
     margin: 0 auto;
+    scroll-margin-top: 110px;
     overflow: hidden;
     border: 1px solid rgba(255, 255, 255, .24);
     border-radius: 16px;
