@@ -252,12 +252,12 @@ button:focus-visible {
 
 .hero-section {
     background-image: linear-gradient(rgba(0, 0, 0, .8), rgba(0, 0, 0, .8)),
-        url('../img/nat-marco-maos-2026-1920.jpg');
+        url('../img/nat-marco-maos-2026-1440.jpg');
     background-image: linear-gradient(rgba(0, 0, 0, .8), rgba(0, 0, 0, .8)),
         image-set(
-            url('../img/nat-marco-maos-2026-1920.avif') type('image/avif'),
-            url('../img/nat-marco-maos-2026-1920.webp') type('image/webp'),
-            url('../img/nat-marco-maos-2026-1920.jpg') type('image/jpeg')
+            url('../img/nat-marco-maos-2026-1440.avif') type('image/avif'),
+            url('../img/nat-marco-maos-2026-1440.webp') type('image/webp'),
+            url('../img/nat-marco-maos-2026-1440.jpg') type('image/jpeg')
         );
     background-position: 50% 25%;
     background-repeat: no-repeat;
@@ -847,18 +847,6 @@ button:focus-visible {
 }
 
 @media (max-width: 991px) {
-    .hero-section {
-        background-image: linear-gradient(rgba(0, 0, 0, .8), rgba(0, 0, 0, .8)),
-            url('../img/nat-marco-maos-2026-960.jpg');
-        background-image: linear-gradient(rgba(0, 0, 0, .8), rgba(0, 0, 0, .8)),
-            image-set(
-                url('../img/nat-marco-maos-2026-960.avif') type('image/avif'),
-                url('../img/nat-marco-maos-2026-960.webp') type('image/webp'),
-                url('../img/nat-marco-maos-2026-960.jpg') type('image/jpeg')
-            );
-        background-attachment: scroll;
-    }
-
     .assurance-section {
         background-attachment: scroll;
     }
@@ -869,6 +857,19 @@ button:focus-visible {
 }
 
 @media (max-width: 767px) {
+    .hero-section {
+        background-image: linear-gradient(rgba(0, 0, 0, .76), rgba(0, 0, 0, .84)),
+            url('../img/nat-marco-maos-2026-mobile.jpg');
+        background-image: linear-gradient(rgba(0, 0, 0, .76), rgba(0, 0, 0, .84)),
+            image-set(
+                url('../img/nat-marco-maos-2026-mobile.avif') type('image/avif'),
+                url('../img/nat-marco-maos-2026-mobile.webp') type('image/webp'),
+                url('../img/nat-marco-maos-2026-mobile.jpg') type('image/jpeg')
+            );
+        background-position: 50% 50%;
+        background-attachment: scroll;
+    }
+
     .tituloPrincipal {
         margin-top: 20%;
     }

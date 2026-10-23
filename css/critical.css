@@ -1,0 +1,54 @@
+@font-face{font-family:Lato;font-style:normal;font-weight:300;font-display:swap;src:url('../vendor/fonts/lato-300-latin.woff2') format('woff2')}
+@font-face{font-family:'Playfair Display';font-style:normal;font-weight:400 700;font-display:swap;src:url('../vendor/fonts/playfair-display-400-700-latin.woff2') format('woff2')}
+@font-face{font-family:runethia;font-style:normal;font-weight:400;font-display:swap;src:url('../vendor/themify/fonts/runethia/runethia.woff2') format('woff2')}
+*,*::before,*::after{box-sizing:border-box}
+html{overflow-x:hidden;font-size:16px;scroll-behavior:smooth}
+body{margin:0;overflow-x:hidden;background:#fff;color:#222324;font-family:Lato,Arial,sans-serif;line-height:1.6}
+a{background:transparent;color:#b99769;text-decoration:none}
+p{margin:0 0 1rem;color:#656565;font-size:.9375rem;font-weight:300}
+h1{margin:0 0 .75rem;font-weight:400;line-height:1.2}
+button{margin:0;border:0;font:inherit}
+.skip-link{position:fixed;top:12px;left:12px;z-index:2000;padding:12px 18px;border-radius:6px;background:#fff;color:#171717;font-weight:700;transform:translateY(-160%)}
+.skip-link:focus{transform:translateY(0)}
+.navbar-fixed-top{position:fixed;top:0;right:0;left:0;z-index:1030}
+.s-header__container{width:100%;padding:.75rem 1.875rem}
+.s-header__navbar-row{display:flex;align-items:center}
+.s-header__navbar-row-col-md-8{flex:1 1 auto;min-width:0}
+.s-header__navbar-row-col{flex:0 0 3.125rem}
+.s-header__logo,.s-header__logo-link{display:block;width:100%}
+.s-header__logo{position:relative;z-index:9999}
+.s-header__logo-link{padding:1rem 0;white-space:nowrap}
+.nameNatMarco{display:inline-block;color:#b99769;font-family:runethia,Arial,sans-serif;font-size:clamp(1rem,5vw,3.5rem);font-weight:400;line-height:1;white-space:nowrap}
+.s-header__trigger{position:relative;z-index:9999;width:3.125rem;height:3.125rem;padding:0;overflow:hidden;appearance:none;background:transparent;cursor:pointer}
+.s-header__trigger-icon,.s-header__trigger-icon::before,.s-header__trigger-icon::after{position:absolute;width:1.375rem;height:.0625rem;background:#fff}
+.s-header__trigger-icon{top:50%;left:50%;transform:translate(-50%,-50%)}
+.s-header__trigger-icon::before,.s-header__trigger-icon::after{left:0;content:''}
+.s-header__trigger-icon::before{top:.4375rem}.s-header__trigger-icon::after{top:-.4375rem}
+.s-header__trigger svg{position:absolute;inset:0}
+.s-header-bg-overlay{position:fixed;inset:0;z-index:999;visibility:hidden;background:rgba(34,35,36,.98)}
+.s-header-bg-overlay.-is-open{visibility:visible}
+.hero-section{position:relative;height:100vh;min-height:34rem;background-image:linear-gradient(rgba(0,0,0,.8),rgba(0,0,0,.8)),url('../img/nat-marco-maos-2026-1440.jpg');background-image:linear-gradient(rgba(0,0,0,.8),rgba(0,0,0,.8)),image-set(url('../img/nat-marco-maos-2026-1440.avif') type('image/avif'),url('../img/nat-marco-maos-2026-1440.webp') type('image/webp'),url('../img/nat-marco-maos-2026-1440.jpg') type('image/jpeg'));background-position:50% 25%;background-repeat:no-repeat;background-size:cover}
+.g-container--md{margin-right:auto;margin-left:auto;padding-right:.9375rem;padding-left:.9375rem}
+.g-ver-center--xs{position:absolute;top:50%;right:0;left:0;transform:translateY(-50%)}
+.g-text-center--xs{text-align:center}
+.tituloPrincipal{color:#b99769;font-family:'Times New Roman',Times,serif;font-size:250%}
+.gold{color:#b99769!important}
+.g-font-size-18--xs{font-size:1.125rem!important}.g-margin-b-0--xs{margin-bottom:0}.g-margin-b-70--xs{margin-bottom:4.375rem}
+.s-btn{display:inline-block;border:0;text-align:center;white-space:nowrap}
+.s-btn-icon--md{padding:.9375rem 1.5625rem .75rem;font-size:1rem}
+.s-btn--primary-brd{border:.0625rem solid #b99769;background:transparent;color:#b99769}
+.g-radius--50{border-radius:3.125rem}.g-padding-x-60--xs{padding-right:3.75rem;padding-left:3.75rem}.text-uppercase{text-transform:uppercase}
+.s-scroll-to-section-v1--bc{position:absolute;bottom:.625rem;left:50%;z-index:1;transform:translateX(-50%);text-align:center}
+.s-scroll-to-section-v1--bc p,.g-color--white{color:#fff!important}
+.g-font-family--playfair{font-family:'Playfair Display',serif!important}.g-letter-spacing--3{letter-spacing:.1875rem}.g-margin-b-15--xs{margin-bottom:.9375rem}
+.whatsapp-fab{position:fixed;right:20px;bottom:20px;z-index:999;display:inline-flex;align-items:center;min-height:52px;padding:0 20px;border-radius:999px;background:#16a34a;color:#fff;font-weight:700;gap:10px}
+.privacy-banner[hidden]{display:none}.privacy-banner{position:fixed;right:16px;bottom:16px;left:16px;z-index:1100}
+.privacy-banner__content{display:flex;align-items:center;justify-content:space-between;max-width:980px;margin:0 auto;padding:18px 20px;border:1px solid rgba(185,151,91,.55);border-radius:12px;background:#171717;color:#fff;gap:24px}
+.privacy-banner__content p{margin:0;color:rgba(255,255,255,.86)}.privacy-banner__actions{display:flex;flex:0 0 auto;gap:10px}
+.privacy-button{min-height:44px;padding:10px 16px;border:1px solid #b9975b;border-radius:6px;font-weight:700}.privacy-button--primary{background:#b9975b;color:#171717}.privacy-button--secondary{background:transparent;color:#fff}
+#fixed-social,.s-back-to-top{visibility:hidden}
+@media(min-width:34em){.g-font-size-20--sm{font-size:1.25rem!important}}
+@media(min-width:48em){.g-container--md{width:750px}}
+@media(min-width:62em){.g-container--md{width:970px}.g-font-size-24--lg{font-size:1.5rem!important}}
+@media(max-width:767px){.s-header__container{padding-right:1rem;padding-left:1rem}.nameNatMarco{font-size:clamp(1.15rem,5.6vw,1.8rem)}.tituloPrincipal{margin-top:20%}.hero-section{background-image:linear-gradient(rgba(0,0,0,.76),rgba(0,0,0,.84)),url('../img/nat-marco-maos-2026-mobile.jpg');background-image:linear-gradient(rgba(0,0,0,.76),rgba(0,0,0,.84)),image-set(url('../img/nat-marco-maos-2026-mobile.avif') type('image/avif'),url('../img/nat-marco-maos-2026-mobile.webp') type('image/webp'),url('../img/nat-marco-maos-2026-mobile.jpg') type('image/jpeg'));background-position:50% 50%}.privacy-banner{right:10px;bottom:10px;left:10px}.privacy-banner__content,.privacy-banner__actions{flex-direction:column;align-items:stretch}.privacy-banner__content{gap:14px}.whatsapp-fab{right:14px;bottom:14px;width:52px;padding:0;justify-content:center}.whatsapp-fab__label{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}

@@ -9,6 +9,7 @@
   "devDependencies": {
     "clean-css": "5.3.3",
     "purgecss": "7.0.2",
+    "sharp": "0.34.4",
     "terser": "5.44.0"
   }
 }
