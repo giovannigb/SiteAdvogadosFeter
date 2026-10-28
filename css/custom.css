@@ -485,6 +485,14 @@ button:focus-visible {
     font-size: 1.25rem;
 }
 
+.team-credential {
+    margin: .35rem 0 0;
+    color: #806238;
+    font-size: .82rem;
+    font-weight: 700;
+    letter-spacing: .04em;
+}
+
 .socials a {
     display: inline-flex;
     align-items: center;
@@ -515,6 +523,37 @@ button:focus-visible {
 .contact-link:hover,
 .contact-link:focus {
     color: #fff;
+}
+
+.contact-service-info {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-width: 1040px;
+    margin: 0 auto 28px;
+    gap: 18px;
+}
+
+.contact-service-info__item {
+    padding: 22px 24px;
+    border: 1px solid rgba(255, 255, 255, .28);
+    border-radius: 12px;
+    background: rgba(23, 23, 23, .2);
+    text-align: center;
+}
+
+.contact-service-info dt {
+    margin-bottom: 7px;
+    color: #fff;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+}
+
+.contact-service-info dd {
+    margin: 0;
+    color: rgba(255, 255, 255, .88);
+    font-size: .96rem;
+    line-height: 1.65;
 }
 
 .contact-guide {
@@ -899,6 +938,10 @@ button:focus-visible {
     }
 
     .contact-guide {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-service-info {
         grid-template-columns: 1fr;
     }
 
