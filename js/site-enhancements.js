@@ -116,6 +116,8 @@
     }
 
     function whatsappLocation(link) {
+        var explicitLocation = link.getAttribute('data-whatsapp-location');
+        if (explicitLocation) return explicitLocation;
         if (link.classList.contains('area-card__button')) return 'area_sidebar';
         if (link.classList.contains('area-whatsapp')) return 'area_floating_button';
         if (link.classList.contains('whatsapp-fab')) return 'home_floating_button';
